@@ -11,6 +11,6 @@
 |
 */
 
-Route::any('{path?}', function () {
-    return view('main');
-})->where("path", ".+");
+// Route::any('{path?}', function () {
+//     return view('main');
+// })->where("path", ".+");
