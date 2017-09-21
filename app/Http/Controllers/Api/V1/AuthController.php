@@ -40,10 +40,10 @@ class AuthController extends Controller
     {
         $user = Auth::user();
         if($user->oatoken()->delete()){
-            $this->content['message'] = 'success logout';
+            $this->content['message'] = 'success';
             $status = 200;
         }else{
-            $this->content['message'] = 'failed logout';
+            $this->content['message'] = 'error';
             $status = 500;
         }
 
