@@ -35,3 +35,18 @@ Route::group(['prefix' => 'auth', 'namespace' => '\Api\V1'], function()
     'uses' => 'AuthController@detail',
   ]);
 });
+
+
+Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
+{
+  Route::get('/', [
+    'as' => 'api.products.list',
+    'middleware' => 'auth:api',
+    'uses' => 'ProductController@get',
+  ]);
+  Route::get('/{id}', [
+    'as' => 'api.products.find',
+    'middleware' => 'auth:api',
+    'uses' => 'ProductController@find',
+  ]);
+});
