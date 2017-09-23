@@ -20,4 +20,13 @@ class Product extends Model
       'cost',
       'selling_price'
     ];
+
+    protected $hidden = [
+      'type_id'
+    ];
+
+    public function type()
+    {
+      return $this->belongsTo('\App\ProductType');
+    }
 }

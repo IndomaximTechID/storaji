@@ -15,7 +15,7 @@ class ProductController extends Controller
     }
 
     public function get(Request $request){
-        $product = Product::all();
+        $product = Product::with('type')->get();
 
         if($this->content['data'] = $product){
           $this->content['status'] = 200;
@@ -29,7 +29,7 @@ class ProductController extends Controller
     }
 
     public function find(Request $request){
-        $product = Product::find($request->id);
+        $product = Product::with('type')->find($request->id);
 
         if($this->content['data'] = $product){
           $this->content['status'] = 200;
