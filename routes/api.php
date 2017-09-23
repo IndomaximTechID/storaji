@@ -44,6 +44,19 @@ Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
     'middleware' => 'auth:api',
     'uses' => 'ProductController@get',
   ]);
+  Route::group(['prefix' => 'types'], function()
+  {
+    Route::get('/', [
+      'as' => 'api.products.types.list',
+      'middleware' => 'auth:api',
+      'uses' => 'ProductTypeController@get',
+    ]);
+    Route::get('/{id}', [
+      'as' => 'api.products.types.find',
+      'middleware' => 'auth:api',
+      'uses' => 'ProductTypeController@find',
+    ]);
+  });
   Route::get('/{id}', [
     'as' => 'api.products.find',
     'middleware' => 'auth:api',
