@@ -44,6 +44,11 @@ Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
     'middleware' => 'auth:api',
     'uses' => 'ProductController@get',
   ]);
+  Route::post('/add', [
+    'as' => 'api.products.add',
+    'middleware' => 'auth:api',
+    'uses' => 'ProductController@add',
+  ]);
   Route::group(['prefix' => 'types'], function()
   {
     Route::get('/', [

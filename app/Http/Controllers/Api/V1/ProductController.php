@@ -41,4 +41,27 @@ class ProductController extends Controller
 
         return response()->json($this->content, $this->content['status']);
     }
+
+    public function add(Request $request)
+    {
+        $product = Product::create([
+          'sku' => $request->input('sku'),
+          'name' => $request->input('name'),
+          'description' => $request->input('description'),
+          'type_id' => $request->input('type_id'),
+          'stock' => $request->input('stock'),
+          'cost' => $request->input('cost'),
+          'selling_price' => $request->input('selling_price')
+        ]);
+
+        if($this->content['data'] = Product::with('type')->find($product->id)){
+          $this->content['status'] = 200;
+          return response()->json($this->content, $this->content['status']);
+        }
+
+        $this->content['error'] = "Server Error";
+        $this->content['status'] = 500;
+
+        return response()->json($this->content, $this->content['status']);
+    }
 }

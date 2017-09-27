@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('sku')->unique();
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->integer('type_id')->unsigned()->index();
             $table->foreign('type_id')->references('id')->on('product_types');
             $table->integer('stock');
