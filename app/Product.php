@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    use \App\Traits\Uuids;
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +21,13 @@ class Product extends Model
       'cost',
       'selling_price'
     ];
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 
     protected $hidden = [
       'type_id'

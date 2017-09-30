@@ -14,21 +14,25 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('product_types', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id');
             $table->string('name');
+
+            $table->primary('id');
         });
 
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id');
             $table->string('sku')->unique();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->integer('type_id')->unsigned()->index();
+            $table->uuid('type_id')->unsigned()->index();
             $table->foreign('type_id')->references('id')->on('product_types');
             $table->integer('stock');
             $table->integer('cost');
             $table->integer('selling_price');
             $table->timestamps();
+
+            $table->primary('id');
         });
     }
 

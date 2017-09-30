@@ -54,7 +54,7 @@ class ProductController extends Controller
           'selling_price' => $request->input('selling_price')
         ]);
 
-        if($this->content['data'] = Product::with('type')->find($product->id)){
+        if($this->content['data'] = Product::with('type')->get()){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status']);
         }
