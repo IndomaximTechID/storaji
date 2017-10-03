@@ -67,4 +67,9 @@ Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
     'middleware' => 'auth:api',
     'uses' => 'ProductController@find',
   ]);
+  Route::put('/{id}/update', [
+    'as' => 'api.products.update',
+    'middleware' => 'auth:api',
+    'uses' => 'ProductController@update',
+  ]);
 });
