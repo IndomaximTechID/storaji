@@ -73,30 +73,4 @@ class OrderController extends Controller
 
         return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
     }
-
-    public function update(Request $request)
-    {
-        $order = Order::with(['order_detail.product', 'customer'])->find($request->id);
-        
-        $order->update([
-          'customer_id' => $request->input('customer_id')
-        ]);
-
-        $order_detail = OrderDetail::where('order_id', $order->id);
-
-        $order_detail->update([
-          'product_id' => $request->input('product_id'),
-          'amount' => $request->input('amount')
-        ]);
-
-        if($this->content['data'] = $order){
-          $this->content['status'] = 200;
-          return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
-        }
-
-        $this->content['error'] = "Server Error";
-        $this->content['status'] = 500;
-
-        return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
-    }
 }

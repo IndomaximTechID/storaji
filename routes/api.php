@@ -36,6 +36,15 @@ Route::group(['prefix' => 'auth', 'namespace' => '\Api\V1'], function()
   ]);
 });
 
+Route::group(['prefix' => 'stats', 'namespace' => '\Api\V1'], function()
+{
+  Route::get('/', [
+    'as' => 'api.stats',
+    'middleware' => 'auth:api',
+    'uses' => 'StatsController@stats',
+  ]);
+});
+
 
 Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
 {
@@ -118,10 +127,5 @@ Route::group(['prefix' => 'orders', 'namespace' => '\Api\V1'], function()
     'as' => 'api.orders.find',
     'middleware' => 'auth:api',
     'uses' => 'OrderController@find',
-  ]);
-  Route::put('/{id}/update', [
-    'as' => 'api.orders.update',
-    'middleware' => 'auth:api',
-    'uses' => 'OrderController@update',
   ]);
 });
