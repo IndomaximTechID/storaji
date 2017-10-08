@@ -54,4 +54,24 @@ class StatsController extends Controller
 
         return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
     }
+
+    public function topProducts(Request $request){
+        $top_products = DB::table('order_details')
+                 ->join('products', 'order_details.product_id', '=', 'products.id')
+                 ->select(DB::raw('products.id, products.name, products.stock, count(product_id) as orders, sum(amount) as sold'))
+                 ->orderBy('sold', 'desc')
+                 ->groupBy('product_id')
+                 ->take(5)
+                 ->get();
+
+        if($this->content['data'] = $top_products){
+          $this->content['status'] = 200;
+          return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
+        }
+
+        $this->content['error'] = "Server Error";
+        $this->content['status'] = 500;
+
+        return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
+    }
 }

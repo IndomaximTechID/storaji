@@ -43,6 +43,11 @@ Route::group(['prefix' => 'stats', 'namespace' => '\Api\V1'], function()
     'middleware' => 'auth:api',
     'uses' => 'StatsController@stats',
   ]);
+  Route::get('/top/products', [
+    'as' => 'api.stats.top.products',
+    'middleware' => 'auth:api',
+    'uses' => 'StatsController@topProducts',
+  ]);
 });
 
 
