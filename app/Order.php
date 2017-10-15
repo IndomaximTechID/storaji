@@ -3,18 +3,19 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\Uuids;
 
-class ProductType extends Model
+class Order extends Model
 {
-    use Uuids, SoftDeletes;
+    use Uuids;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = [
+      'customer_id'
+    ];
 
     /**
      * The attributes that should be mutated to dates.
@@ -29,4 +30,14 @@ class ProductType extends Model
      * @var bool
      */
     public $incrementing = false;
+
+    public function customer()
+    {
+      return $this->belongsTo('\App\Customer');
+    }
+
+    public function order_detail()
+    {
+      return $this->hasOne('\App\OrderDetail');
+    }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\Uuids;
 
-class ProductType extends Model
+class Customer extends Model
 {
     use Uuids, SoftDeletes;
     /**
@@ -14,7 +14,15 @@ class ProductType extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = [
+      'full_name',
+      'company_name',
+      'email',
+      'address',
+      'postal_code',
+      'city',
+      'country'
+    ];
 
     /**
      * The attributes that should be mutated to dates.
