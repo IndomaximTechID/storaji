@@ -79,7 +79,7 @@ class CustomerController extends Controller
           'country' => $request->input('country')
         ]);
 
-        if($this->content['data'] = $customer){
+        if($this->content['data'] = Customer::find($request->id)){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status']);
         }
@@ -96,7 +96,7 @@ class CustomerController extends Controller
         
         $customer->delete();
 
-        if($this->content['data'] = $customer){
+        if($this->content['data'] = Customer::find($request->id)){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status']);
         }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\ProductType;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
@@ -43,12 +44,12 @@ class ProductController extends Controller
     }
 
     public function add(Request $request)
-    {
+    {   
         $product = Product::create([
           'sku' => $request->input('sku'),
           'name' => $request->input('name'),
           'description' => $request->input('description'),
-          'type_id' => $request->input('type.id'),
+          'type_id' => ($request->input('type.id')) ? $request->input('type.id') : ProductType::create(['name' => $request->input('type')])->id,
           'stock' => $request->input('stock'),
           'cost' => $request->input('cost'),
           'selling_price' => $request->input('selling_price')
@@ -73,13 +74,13 @@ class ProductController extends Controller
           'sku' => $request->input('sku'),
           'name' => $request->input('name'),
           'description' => $request->input('description'),
-          'type_id' => $request->input('type.id'),
+          'type_id' => ($request->input('type.id')) ? $request->input('type.id') : ProductType::create(['name' => $request->input('type')])->id,
           'stock' => $request->input('stock'),
           'cost' => $request->input('cost'),
           'selling_price' => $request->input('selling_price')
         ]);
 
-        if($this->content['data'] = $product){
+        if($this->content['data'] = Product::with('type')->find($request->id)){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
         }
@@ -96,7 +97,7 @@ class ProductController extends Controller
         
         $product->delete();
 
-        if($this->content['data'] = $product){
+        if($this->content['data'] = Product::with('type')->find($request->id)){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
         }
