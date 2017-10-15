@@ -16,6 +16,8 @@ class CreateProductsTable extends Migration
         Schema::create('product_types', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('name');
+            $table->softDeletes();
+            $table->timestamps();
 
             $table->primary('id');
         });
@@ -30,6 +32,7 @@ class CreateProductsTable extends Migration
             $table->integer('stock');
             $table->integer('cost');
             $table->integer('selling_price');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->primary('id');
