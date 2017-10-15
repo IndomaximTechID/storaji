@@ -3,10 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Uuids;
 
 class OrderDetail extends Model
 {
-    use \App\Traits\Uuids;
+    use Uuids;
     /**
      * The attributes that are mass assignable.
      *
@@ -17,6 +18,13 @@ class OrderDetail extends Model
       'product_id',
       'amount'
     ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * Indicates if the IDs are auto-incrementing.
