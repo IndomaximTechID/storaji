@@ -89,4 +89,21 @@ class CustomerController extends Controller
 
         return response()->json($this->content, $this->content['status']);
     }
+
+    public function delete(Request $request)
+    {
+        $customer = Customer::find($request->id);
+        
+        $customer->delete();
+
+        if($this->content['data'] = $customer){
+          $this->content['status'] = 200;
+          return response()->json($this->content, $this->content['status']);
+        }
+
+        $this->content['error'] = "Server Error";
+        $this->content['status'] = 500;
+
+        return response()->json($this->content, $this->content['status']);
+    }
 }

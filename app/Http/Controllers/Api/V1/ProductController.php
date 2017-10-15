@@ -89,4 +89,21 @@ class ProductController extends Controller
 
         return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
     }
+
+    public function delete(Request $request)
+    {
+        $product = Product::with('type')->find($request->id);
+        
+        $product->delete();
+
+        if($this->content['data'] = $product){
+          $this->content['status'] = 200;
+          return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
+        }
+
+        $this->content['error'] = "Server Error";
+        $this->content['status'] = 500;
+
+        return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
+    }
 }

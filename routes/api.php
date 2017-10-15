@@ -36,6 +36,8 @@ Route::group(['prefix' => 'auth', 'namespace' => '\Api\V1'], function()
   ]);
 });
 
+
+// Stats API
 Route::group(['prefix' => 'stats', 'namespace' => '\Api\V1'], function()
 {
   Route::get('/', [
@@ -51,6 +53,7 @@ Route::group(['prefix' => 'stats', 'namespace' => '\Api\V1'], function()
 });
 
 
+// Products API
 Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
 {
   Route::get('/', [
@@ -64,7 +67,8 @@ Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
     'uses' => 'ProductController@add',
   ]);
 
-  // Product Types Route
+
+  // Products API children Types
   Route::group(['prefix' => 'types'], function()
   {
     Route::get('/', [
@@ -78,6 +82,8 @@ Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
       'uses' => 'ProductTypeController@find',
     ]);
   });
+
+
   Route::get('/{id}', [
     'as' => 'api.products.find',
     'middleware' => 'auth:api',
@@ -88,9 +94,15 @@ Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
     'middleware' => 'auth:api',
     'uses' => 'ProductController@update',
   ]);
+  Route::delete('/{id}/delete', [
+    'as' => 'api.products.delete',
+    'middleware' => 'auth:api',
+    'uses' => 'ProductController@delete',
+  ]);
 });
 
 
+// Customers API
 Route::group(['prefix' => 'customers', 'namespace' => '\Api\V1'], function()
 {
   Route::get('/', [
@@ -113,9 +125,15 @@ Route::group(['prefix' => 'customers', 'namespace' => '\Api\V1'], function()
     'middleware' => 'auth:api',
     'uses' => 'CustomerController@update',
   ]);
+  Route::delete('/{id}/delete', [
+    'as' => 'api.customers.delete',
+    'middleware' => 'auth:api',
+    'uses' => 'CustomerController@delete',
+  ]);
 });
 
 
+// Orders API
 Route::group(['prefix' => 'orders', 'namespace' => '\Api\V1'], function()
 {
   Route::get('/', [
