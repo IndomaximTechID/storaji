@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\Uuids;
 
-class ProductType extends Model
+class Company extends Model
 {
     use Uuids, SoftDeletes;
     /**
@@ -14,7 +14,11 @@ class ProductType extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = [
+      'name',
+      'type_id',
+      'user_id'
+    ];
 
     /**
      * The attributes that should be mutated to dates.
@@ -29,4 +33,14 @@ class ProductType extends Model
      * @var bool
      */
     public $incrementing = false;
+
+    protected $hidden = [
+      'type_id',
+      'user_id'
+    ];
+
+    public function type()
+    {
+      return $this->belongsTo('\App\CompanyType');
+    }
 }
