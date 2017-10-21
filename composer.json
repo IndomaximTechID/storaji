@@ -1,7 +1,7 @@
 {
     "name": "storaji",
-    "version": "1.0.0",
-    "description": "Storaji UI is an ui for Storaji IMS, built with Angular 4 and Electron.",
+    "version": "1.0.0-alpha",
+    "description": "Storaji is an Inventory Management System, powered by Electron, Angular 4 and Laravel. Designed for Middle-Low Company to manage their stock if has no much budget to buy License of similar paid software.",
     "keywords": ["software", "inventory", "management", "system"],
     "license": "MIT",
     "type": "project",
