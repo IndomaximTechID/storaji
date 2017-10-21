@@ -15,13 +15,14 @@ class StatsController extends Controller
     }
 
     public function stats(Request $request){
-        $products = DB::table('products')->count();
-        $customers = DB::table('customers')->count();
-        $orders = DB::table('orders')->count();
+        $products = DB::table('products')->where('company_id', Auth::user()->company->id)->count();
+        $customers = DB::table('customers')->where('company_id', Auth::user()->company->id)->count();
+        $orders = DB::table('orders')->where('company_id', Auth::user()->company->id)->count();
 
         $product_amounts = DB::table('order_details')
                  ->join('products', 'order_details.product_id', '=', 'products.id')
-                 ->select(DB::raw('product_id, count(product_id) as amount'))
+                 ->where('products.company_id', Auth::user()->company->id)
+                 ->select(DB::raw('product_id, count(product_id) as unit, amount'))
                  ->groupBy('product_id')
                  ->get();
         
@@ -33,10 +34,13 @@ class StatsController extends Controller
 
         foreach ($product_amounts as $index) {
           $pre = DB::table('products')
-                 ->find($index->product_id);
-          $stats->cost += $pre->cost * $index->amount;
-          $stats->revenue += $pre->selling_price * $index->amount;
-          $stats->profit += ($pre->selling_price * $index->amount) - ($pre->cost * $index->amount);
+                     ->where('company_id', Auth::user()->company->id)
+                     ->find($index->product_id);
+          $cost = ($pre->cost * $index->unit) * ($pre->stock + $index->amount);
+          $revenue = ($pre->selling_price * $index->unit) * $index->amount;
+          $stats->cost += $cost;
+          $stats->revenue += $revenue;
+          $stats->profit += $revenue - $cost;
         }
 
         if($this->content['data'] = [
@@ -58,6 +62,7 @@ class StatsController extends Controller
     public function topProducts(Request $request){
         $top_products = DB::table('order_details')
                  ->join('products', 'order_details.product_id', '=', 'products.id')
+                 ->where('products.company_id', Auth::user()->company->id)
                  ->select(DB::raw('products.id, products.name, products.stock, count(product_id) as orders, sum(amount) as sold'))
                  ->orderBy('sold', 'desc')
                  ->groupBy('product_id')

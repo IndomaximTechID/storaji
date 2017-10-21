@@ -17,7 +17,9 @@ class OrderController extends Controller
     }
 
     public function get(Request $request){
-        $order = Order::with(['order_detail.product', 'customer'])->get();
+        $order = Order::with(['order_detail.product', 'customer'])
+                        ->where('company_id', Auth::user()->company->id)
+                        ->get();
 
         if($this->content['data'] = $order){
           $this->content['status'] = 200;
@@ -31,7 +33,9 @@ class OrderController extends Controller
     }
 
     public function find(Request $request){
-        $order = Order::with(['order_detail.product', 'customer'])->find($request->id);
+        $order = Order::with(['order_detail.product', 'customer'])
+                      ->where('company_id', Auth::user()->company->id)
+                      ->find($request->id);
 
         if($this->content['data'] = $order){
           $this->content['status'] = 200;
@@ -53,7 +57,8 @@ class OrderController extends Controller
           ]);
           
           $order = Order::create([
-            'customer_id' => $request->input('customer.id')
+            'customer_id' => $request->input('customer.id'),
+            'company_id' => Auth::user()->company->id
           ]);
   
           $order_detail = OrderDetail::create([
@@ -62,7 +67,7 @@ class OrderController extends Controller
             'amount' => $request->input('order_detail.amount')
           ]);
 
-          if($this->content['data'] = Order::with(['order_detail.product', 'customer'])->get()){
+          if($this->content['data'] = Order::with(['order_detail.product', 'customer'])->where('company_id', Auth::user()->company->id)->get()){
             $this->content['status'] = 200;
             return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
           }

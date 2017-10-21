@@ -17,6 +17,8 @@ class CreateTableOrders extends Migration
             $table->uuid('id');
             $table->uuid('customer_id')->unsigned()->index();
             $table->foreign('customer_id')->references('id')->on('customers');
+            $table->uuid('company_id')->unsigned()->index();
+            $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
 
             $table->primary('id');
