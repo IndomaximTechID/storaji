@@ -15,7 +15,7 @@ class CustomerController extends Controller
     }
 
     public function get(Request $request){
-        $customer = Customer::get();
+        $customer = Customer::where('company_id', Auth::user()->company->id)->get();
 
         if($this->content['data'] = $customer){
           $this->content['status'] = 200;
@@ -29,7 +29,7 @@ class CustomerController extends Controller
     }
 
     public function find(Request $request){
-        $customer = Customer::find($request->id);
+        $customer = Customer::where('company_id', Auth::user()->company->id)->find($request->id);
 
         if($this->content['data'] = $customer){
           $this->content['status'] = 200;
@@ -51,10 +51,11 @@ class CustomerController extends Controller
           'address' => $request->input('address'),
           'postal_code' => $request->input('postal_code'),
           'city' => $request->input('city'),
-          'country' => $request->input('country')
+          'country' => $request->input('country'),
+          'company_id' => Auth::user()->company->id
         ]);
 
-        if($this->content['data'] = Customer::get()){
+        if($this->content['data'] = Customer::where('company_id', Auth::user()->company->id)->get()){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status']);
         }
@@ -67,7 +68,7 @@ class CustomerController extends Controller
 
     public function update(Request $request)
     {
-        $customer = Customer::find($request->id);
+        $customer = Customer::where('company_id', Auth::user()->company->id)->find($request->id);
         
         $customer->update([
           'full_name' => $request->input('full_name'),
@@ -79,7 +80,7 @@ class CustomerController extends Controller
           'country' => $request->input('country')
         ]);
 
-        if($this->content['data'] = Customer::find($request->id)){
+        if($this->content['data'] = Customer::where('company_id', Auth::user()->company->id)->find($request->id)){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status']);
         }
@@ -92,11 +93,11 @@ class CustomerController extends Controller
 
     public function delete(Request $request)
     {
-        $customer = Customer::find($request->id);
+        $customer = Customer::where('company_id', Auth::user()->company->id)->find($request->id);
         
         $customer->delete();
 
-        if($this->content['data'] = Customer::find($request->id)){
+        if($this->content['data'] = Customer::where('company_id', Auth::user()->company->id)->find($request->id)){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status']);
         }

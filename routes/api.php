@@ -13,9 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+
+// Signal API
+Route::get('/', function (Request $request) {
+    return $request->json(['status' => 'connected']);
+});
 // Auth API
 
 Route::group(['prefix' => 'auth', 'namespace' => '\Api\V1'], function()
@@ -23,6 +25,10 @@ Route::group(['prefix' => 'auth', 'namespace' => '\Api\V1'], function()
   Route::post('/login', [
     'as' => 'api.auth.login',
     'uses' => 'AuthController@login',
+  ]);
+  Route::post('/register', [
+    'as' => 'api.auth.register',
+    'uses' => 'AuthController@register',
   ]);
   Route::post('/logout', [
     'as' => 'api.auth.logout',
@@ -99,6 +105,24 @@ Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
     'middleware' => 'auth:api',
     'uses' => 'ProductController@delete',
   ]);
+});
+
+
+// Companies API
+Route::group(['prefix' => 'companies', 'namespace' => '\Api\V1'], function()
+{
+  // Companies API children Types
+  Route::group(['prefix' => 'types'], function()
+  {
+    Route::get('/', [
+      'as' => 'api.companies.types.list',
+      'uses' => 'CompanyTypeController@get',
+    ]);
+    Route::get('/{id}', [
+      'as' => 'api.companies.types.find',
+      'uses' => 'CompanyTypeController@find',
+    ]);
+  });
 });
 
 

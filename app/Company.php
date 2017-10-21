@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\Uuids;
 
-class Customer extends Model
+class Company extends Model
 {
     use Uuids, SoftDeletes;
     /**
@@ -15,23 +15,9 @@ class Customer extends Model
      * @var array
      */
     protected $fillable = [
-      'full_name',
-      'company_name',
-      'email',
-      'address',
-      'postal_code',
-      'city',
-      'country',
-      'company_id'
-    ];
-
-    public function company()
-    {
-      return $this->belongsTo('\App\Company');
-    }
-
-    protected $hidden = [
-      'company_id'
+      'name',
+      'type_id',
+      'user_id'
     ];
 
     /**
@@ -47,4 +33,14 @@ class Customer extends Model
      * @var bool
      */
     public $incrementing = false;
+
+    protected $hidden = [
+      'type_id',
+      'user_id'
+    ];
+
+    public function type()
+    {
+      return $this->belongsTo('\App\CompanyType');
+    }
 }

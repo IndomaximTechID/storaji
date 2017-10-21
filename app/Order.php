@@ -14,7 +14,13 @@ class Order extends Model
      * @var array
      */
     protected $fillable = [
-      'customer_id'
+      'customer_id',
+      'company_id'
+    ];
+    
+    protected $hidden = [
+      'customer_id',
+      'company_id'
     ];
 
     /**
@@ -39,5 +45,10 @@ class Order extends Model
     public function order_detail()
     {
       return $this->hasOne('\App\OrderDetail');
+    }
+
+    public function company()
+    {
+      return $this->belongsTo('\App\Company');
     }
 }

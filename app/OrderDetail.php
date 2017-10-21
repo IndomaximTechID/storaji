@@ -18,6 +18,11 @@ class OrderDetail extends Model
       'product_id',
       'amount'
     ];
+    
+    protected $hidden = [
+      'order_id',
+      'product_id'
+    ];
 
     /**
      * The attributes that should be mutated to dates.

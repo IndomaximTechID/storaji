@@ -1,7 +1,8 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "storaji",
+    "version": "1.0.0",
+    "description": "Storaji UI is an ui for Storaji IMS, built with Angular 4 and Electron.",
+    "keywords": ["software", "inventory", "management", "system"],
     "license": "MIT",
     "type": "project",
     "require": {

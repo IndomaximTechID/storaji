@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\Uuids;
+use DB;
 
 class Product extends Model
 {
@@ -21,7 +22,8 @@ class Product extends Model
       'type_id',
       'stock',
       'cost',
-      'selling_price'
+      'selling_price',
+      'company_id'
     ];
 
     /**
@@ -39,11 +41,24 @@ class Product extends Model
     public $incrementing = false;
 
     protected $hidden = [
-      'type_id'
+      'type_id',
+      'company_id'
     ];
 
     public function type()
     {
       return $this->belongsTo('\App\ProductType');
+    }
+
+    public function company()
+    {
+      return $this->belongsTo('\App\Company');
+    }
+
+    public function sold()
+    {
+      return $this->hasOne('App\OrderDetail')
+                  ->select(DB::raw('product_id, sum(amount) as amount'))
+                  ->groupBy('product_id');
     }
 }

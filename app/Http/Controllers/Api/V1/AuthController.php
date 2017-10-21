@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Company;
+use App\CompanyType;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -15,6 +17,34 @@ class AuthController extends Controller
     }
 
     public function login(Request $request){
+        if(Auth::attempt([
+          'email' => $request->input('email'),
+          'password' => $request->input('password')
+        ])){
+            $user = Auth::user();
+            $this->content['token'] =  $user->createToken($user->name . ' App')->accessToken;
+            $status = 200;
+        }
+        else{
+            $this->content['error'] = "Unauthorized";
+            $status = 401;
+        }
+        return response()->json($this->content, $status);
+    }
+
+    public function register(Request $request){
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+        ]);
+
+        $company = Company::create([
+            'name' => $request->input('company.name'),
+            'user_id' => $user->id,
+            'type_id' => ($request->input('company.type.id')) ? $request->input('company.type.id') : CompanyType::create(['name' => $request->input('company.type')])->id
+        ]);
+
         if(Auth::attempt([
           'email' => $request->input('email'),
           'password' => $request->input('password')
@@ -52,6 +82,7 @@ class AuthController extends Controller
 
     public function detail()
     {
-      return response()->json(Auth::user()->toArray());
+        $user = Auth::user();
+        return response()->json($user->load('company')->toArray());
     }
 }

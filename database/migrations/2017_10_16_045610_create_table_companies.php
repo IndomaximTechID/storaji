@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductsTable extends Migration
+class CreateTableCompanies extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_types', function (Blueprint $table) {
+        Schema::create('company_types', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('name');
             $table->softDeletes();
@@ -22,18 +22,13 @@ class CreateProductsTable extends Migration
             $table->primary('id');
         });
 
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->uuid('id');
-            $table->string('sku')->unique();
             $table->string('name');
-            $table->text('description')->nullable();
             $table->uuid('type_id')->unsigned()->index();
-            $table->foreign('type_id')->references('id')->on('product_types');
-            $table->uuid('company_id')->unsigned()->index();
-            $table->foreign('company_id')->references('id')->on('companies');
-            $table->integer('stock');
-            $table->integer('cost');
-            $table->integer('selling_price');
+            $table->foreign('type_id')->references('id')->on('company_types');
+            $table->uuid('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();
 
@@ -48,7 +43,7 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
-        Schema::dropIfExists('product_types');
+        Schema::dropIfExists('companies');
+        Schema::dropIfExists('company_types');
     }
 }
