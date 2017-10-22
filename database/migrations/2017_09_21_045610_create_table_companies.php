@@ -25,9 +25,9 @@ class CreateTableCompanies extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('name');
-            $table->uuid('type_id')->unsigned()->index();
+            $table->uuid('type_id')->index();
             $table->foreign('type_id')->references('id')->on('company_types');
-            $table->uuid('user_id')->unsigned()->index();
+            $table->uuid('user_id')->index();
             $table->foreign('user_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();

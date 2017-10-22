@@ -22,7 +22,7 @@ class CreateTableCustomers extends Migration
             $table->string('postal_code');
             $table->string('city');
             $table->string('country');
-            $table->uuid('company_id')->unsigned()->index();
+            $table->uuid('company_id')->index();
             $table->foreign('company_id')->references('id')->on('companies');
             $table->softDeletes();
             $table->timestamps();
