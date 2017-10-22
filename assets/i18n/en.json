@@ -1,0 +1,138 @@
+{
+    "en": "English",
+    "id": "Bahasa Indonesia",
+    "intro": "Manage your company stocks with us",
+    "module": {
+        "title": {
+            "login": "Login",
+            "logout": "Logout",
+            "register": "Register",
+            "product": "Products",
+            "customer": "Customers",
+            "transaction": "Transactions",
+            "dashboard": "Dashboard",
+            "order": "Orders"
+        }
+    },
+    "table": {
+        "number": "No.",
+        "name": "Name",
+        "sold": "Sold",
+        "status": "Status",
+        "stock": "Stock",
+        "sku": "SKU",
+        "type": "Type",
+        "no-data": "No Data",
+        "customer": {
+            "id": "Customer ID",
+            "name": "Customer Name"
+        },
+        "company": {
+            "name": "Company Name"
+        },
+        "order": {
+            "id": "Order ID"
+        },
+        "product": {
+            "name": "Product Name"
+        },
+        "date": "Date"
+    },
+    "form": {
+        "label": {
+            "email": "Email",
+            "password": "Password",
+            "product": "Product",
+            "customer": "Customer",
+            "name": "Name",
+            "fullname": "Full Name",
+            "company-name": "Company Name",
+            "customer-name": "Customer Name",
+            "city": "City",
+            "country": "Country",
+            "postal-code": "Postal Code",
+            "address": "Address",
+            "type": "Type",
+            "sku": "SKU",
+            "stock": "Stock",
+            "cost": "Cost",
+            "selling-price": "Selling Price",
+            "description": "Description",
+            "sold": "Sold",
+            "amount": "Amount"
+        },
+        "placeholder": {
+            "email": "Enter Email",
+            "password": "Enter Password",
+            "product": "Enter Product",
+            "customer": "Enter Customer",
+            "fullname": "Enter Full Name",
+            "customer-name": "Enter Customer Name",
+            "company-name": "Enter Company Name",
+            "company-type": "Enter Company Category",
+            "name": "Enter Name",
+            "city": "Enter City",
+            "country": "Enter Country",
+            "postal-code": "Enter Postal Code",
+            "address": "Enter Address",
+            "type": "Enter Type",
+            "sku": "Enter SKU",
+            "stock": "Enter Stock",
+            "cost": "Enter Cost",
+            "selling-price": "Enter Selling Price",
+            "description": "Enter Description",
+            "amount": "Enter Amount"
+        },
+        "button": {
+            "save": "Save",
+            "cancel": "Cancel"
+        }
+    },
+    "text": {
+        "new": {
+            "product": "New Product",
+            "customer": "New Customer",
+            "order": "New Order"
+        },
+        "edit": {
+            "product": "Edit Product",
+            "customer": "Edit Customer",
+            "order": "Edit Order"
+        },
+        "i18n": "Language Options",
+        "module": "Modules",
+        "forgot-password": "Forgot your password?",
+        "has-account": "Already have an account?",
+        "has-no-account": "You don't have an account yet?",
+        "stat": {
+            "financial": "Financials",
+            "top-selling": "Top Selling Products",
+            "revenue": "Revenue",
+            "profit": "Profit",
+            "cost": "Cost",
+            "total": "Totals"
+        },
+        "in-stock": "In stock",
+        "sold-out": "Sold out"
+    },
+    "confirmation": {
+        "logout": {
+            "title": "Logout Confirmation",
+            "message": "Are you sure want to continue to logout?",
+            "continue": "Yes, Let me logout",
+            "cancel": "Nah, let's go back"
+        },
+        "delete": {
+            "title": "Delete Confirmation",
+            "message": "Are you sure want to continue delete this?",
+            "continue": "Delete",
+            "cancel": "Cancel"
+        }
+    },
+    "notification": {
+        "login": {
+            "success": "Redirecting to Dashboard ...",
+            "failed": "Email and password didn't match."
+        }
+    }
+}

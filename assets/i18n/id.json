@@ -1,0 +1,138 @@
+{
+    "en": "English",
+    "id": "Bahasa Indonesia",
+    "intro": "Kelola stok gudang Perusahaan anda dengan kami",
+    "module": {
+        "title": {
+            "login": "Masuk",
+            "logout": "Keluar",
+            "register": "Daftar",
+            "product": "Produk",
+            "customer": "Pelanggan",
+            "transaction": "Transaksi",
+            "dashboard": "Beranda",
+            "order": "Pesanan"
+        }
+    },
+    "table": {
+        "number": "No.",
+        "name": "Nama",
+        "sold": "Terjual",
+        "status": "Status",
+        "stock": "Stok",
+        "sku": "SKU",
+        "type": "Tipe",
+        "no-data": "Tidak Ada Data",
+        "customer": {
+            "id": "ID Pelanggan",
+            "name": "Nama Pelanggan"
+        },
+        "company": {
+            "name": "Nama Perusahaan"
+        },
+        "order": {
+            "id": "ID Pesanan"
+        },
+        "product": {
+            "name": "Nama Produk"
+        },
+        "date": "Tanggal"
+    },
+    "form": {
+        "label": {
+            "email": "Email",
+            "password": "Kata Sandi",
+            "product": "Produk",
+            "customer": "Pelanggan",
+            "name": "Nama",
+            "fullname": "Nama Lengkap",
+            "company-name": "Nama Perusahaan",
+            "customer-name": "Nama Pelanggan",
+            "city": "Kota",
+            "country": "Negara",
+            "postal-code": "Kode Pos",
+            "address": "Alamat",
+            "type": "Tipe",
+            "sku": "SKU",
+            "stock": "Stok",
+            "cost": "Harga Pokok",
+            "selling-price": "Harga Jual",
+            "description": "Keterangan",
+            "sold": "Terjual",
+            "amount": "Jumlah"
+        },
+        "placeholder": {
+            "email": "Masukkan Email",
+            "password": "Masukkan Kata Sandi",
+            "product": "Masukkan Produk",
+            "customer": "Masukkan Pelanggan",
+            "fullname": "Masukkan Nama Lengkap",
+            "customer-name": "Masukkan Nama Pelanggan",
+            "company-name": "Masukkan Nama Perusahaan",
+            "company-type": "Masukkan Kategori Perusahaan",
+            "name": "Masukkan Nama",
+            "city": "Masukkan Kota",
+            "country": "Masukkan Negara",
+            "postal-code": "Masukkan Kode Pos",
+            "address": "Masukkan Alamat",
+            "type": "Masukkan Tipe",
+            "sku": "Masukkan SKU",
+            "stock": "Masukkan Stok",
+            "cost": "Masukkan Harga Pokok",
+            "selling-price": "Masukkan Harga Jual",
+            "description": "Masukkan Keterangan",
+            "amount": "Masukkan Jumlah"
+        },
+        "button": {
+            "save": "Simpan",
+            "cancel": "Batalkan"
+        }
+    },
+    "text": {
+        "new": {
+            "product": "Tambah Produk",
+            "customer": "Tambah Pelanggan",
+            "order": "Tambah Pesanan"
+        },
+        "edit": {
+            "product": "Ubah Produk",
+            "customer": "Ubah Pelanggan",
+            "order": "Ubah Pesanan"
+        },
+        "i18n": "Pilihan Bahasa",
+        "module": "Modul",
+        "forgot-password": "Lupa kata sandi?",
+        "has-account": "Sudah punya akun?",
+        "has-no-account": "Belum punya akun?",
+        "stat": {
+            "financial": "Keuangan",
+            "top-selling": "Produk Paling Banyak Terjual",
+            "revenue": "Pendapatan",
+            "profit": "Keuntungan",
+            "cost": "Biaya",
+            "total": "Total"
+        },
+        "in-stock": "Stok ada",
+        "sold-out": "Stok habis"
+    },
+    "confirmation": {
+        "logout": {
+            "title": "Konfirmasi Keluar",
+            "message": "Apa anda yakin ingin melanjutkan keluar?",
+            "continue": "Ya, biarkan saya keluar",
+            "cancel": "Tidak, dan kembali"
+        },
+        "delete": {
+            "title": "Konfirmasi Hapus Data",
+            "message": "Apa anda yakin ingin melanjutkan menghapus data ini?",
+            "continue": "Hapus",
+            "cancel": "Batalkan"
+        }
+    },
+    "notification": {
+        "login": {
+            "success": "Mengalihkan ke Beranda ...",
+            "failed": "Email dan kata sandi tidak cocok."
+        }
+    }
+}
