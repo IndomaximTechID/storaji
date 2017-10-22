@@ -17,6 +17,11 @@ class AuthServiceProvider extends ServiceProvider
         'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
+    public function register()
+    {
+        Passport::ignoreMigrations();
+    }
+
     /**
      * Register any authentication / authorization services.
      *
