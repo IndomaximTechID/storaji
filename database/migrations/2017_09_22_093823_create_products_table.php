@@ -27,9 +27,9 @@ class CreateProductsTable extends Migration
             $table->string('sku')->unique();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->uuid('type_id')->unsigned()->index();
+            $table->uuid('type_id')->index();
             $table->foreign('type_id')->references('id')->on('product_types');
-            $table->uuid('company_id')->unsigned()->index();
+            $table->uuid('company_id')->index();
             $table->foreign('company_id')->references('id')->on('companies');
             $table->integer('stock');
             $table->integer('cost');

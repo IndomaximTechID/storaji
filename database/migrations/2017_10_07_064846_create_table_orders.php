@@ -15,9 +15,9 @@ class CreateTableOrders extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id');
-            $table->uuid('customer_id')->unsigned()->index();
+            $table->uuid('customer_id')->index();
             $table->foreign('customer_id')->references('id')->on('customers');
-            $table->uuid('company_id')->unsigned()->index();
+            $table->uuid('company_id')->index();
             $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
 
@@ -26,9 +26,9 @@ class CreateTableOrders extends Migration
 
         Schema::create('order_details', function (Blueprint $table) {
             $table->uuid('id');
-            $table->uuid('order_id')->unsigned()->index();
+            $table->uuid('order_id')->index();
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade')->onUpdate('cascade');
-            $table->uuid('product_id')->unsigned()->index();
+            $table->uuid('product_id')->index();
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('amount');
             $table->timestamps();
