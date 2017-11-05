@@ -95,6 +95,11 @@ Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
     'middleware' => 'auth:api',
     'uses' => 'ProductController@find',
   ]);
+  Route::get('/{id}/customers', [
+    'as' => 'api.products.customers',
+    'middleware' => 'auth:api',
+    'uses' => 'ProductController@customers',
+  ]);
   Route::put('/{id}/update', [
     'as' => 'api.products.update',
     'middleware' => 'auth:api',

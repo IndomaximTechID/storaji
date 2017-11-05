@@ -7,6 +7,8 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\ProductType;
+use App\Customer;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
@@ -20,7 +22,7 @@ class ProductController extends Controller
         $product = Product::with('type')
                             ->where('company_id', Auth::user()->company->id)
                             ->get();
-
+                            
         if($this->content['data'] = $product){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
@@ -38,6 +40,25 @@ class ProductController extends Controller
                             ->find($request->id);
 
         if($this->content['data'] = $product){
+          $this->content['status'] = 200;
+          return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
+        }
+
+        $this->content['error'] = "Server Error";
+        $this->content['status'] = 500;
+
+        return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
+    }
+
+    public function customers(Request $request){
+        $product_id = $request->id;
+        $customers = Customer::whereHas('order', function($query) use ($product_id) {
+                                $query->whereHas('order_detail', function($query) use ($product_id) {
+                                    $query->where('product_id', $product_id);
+                                });
+                            })->get();
+
+        if($this->content['data'] = $customers){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
         }

@@ -30,6 +30,11 @@ class Customer extends Model
       return $this->belongsTo('\App\Company');
     }
 
+    public function order()
+    {
+      return $this->hasOne('\App\Order');
+    }
+
     protected $hidden = [
       'company_id'
     ];
