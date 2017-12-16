@@ -18,10 +18,39 @@ class OrderController extends Controller
 
     public function get(Request $request){
         $order = Order::with(['order_detail.product', 'customer'])
-                        ->where('company_id', Auth::user()->company->id)
-                        ->get();
+                        ->where('company_id', Auth::user()->company->id);
 
-        if($this->content['data'] = $order){
+        if($request->has('filter')){
+            $params = (object) json_decode($request->filter, true);
+
+            if(is_array($params->date_range)){
+                $params->date_range = (object) $params->date_range;
+            }
+            if($params->id){
+                $order = $order->where('id', 'like', '%' . $params->id . '%');
+            }
+            if($params->product){
+                $order = $order->whereHas('order_detail', function($q) use ($params) {
+                  $q->whereHas('product', function($q) use ($params) {
+                    $q->where('name', 'like', '%' . $params->product . '%');
+                  });
+                });
+            }
+            if($params->customer){
+                $order = $order->whereHas('customer', function($q) use ($params) {
+                  $q->where('full_name', 'like', '%' . $params->customer . '%');
+                });
+            }
+
+            if(is_object($params->date_range) && ($params->date_range->from && $params->date_range->to)){
+                $customer = $customer->whereBetween('created_at', [
+                    Carbon::createFromFormat('m/d/Y', $params->date_range->from)->format('Y-m-d')." 00:00:00",
+                    Carbon::createFromFormat('m/d/Y', $params->date_range->to)->format('Y-m-d')." 23:59:59"
+                ]);
+            }
+        }
+
+        if($this->content['data'] = $order->get()){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
         }

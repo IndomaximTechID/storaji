@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Customer;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
@@ -15,9 +16,36 @@ class CustomerController extends Controller
     }
 
     public function get(Request $request){
-        $customer = Customer::where('company_id', Auth::user()->company->id)->get();
+        $customer = Customer::where('company_id', Auth::user()->company->id);
+        
+        if($request->has('filter')){
+            $params = (object) json_decode($request->filter, true);
 
-        if($this->content['data'] = $customer){
+            if(is_array($params->date_range)){
+                $params->date_range = (object) $params->date_range;
+            }
+            if($params->name){
+                $customer = $customer->where('full_name', 'like', '%' . $params->name . '%');
+            }
+            if($params->company){
+                $customer = $customer->where('company_name', 'like', '%' . $params->company . '%');
+            }
+            if($params->city){
+                $customer = $customer->where('city', 'like', '%' . $params->city . '%');
+            }
+            if($params->country){
+                $customer = $customer->where('country', 'like', '%' . $params->country . '%');
+            }
+
+            if(is_object($params->date_range) && ($params->date_range->from && $params->date_range->to)){
+                $customer = $customer->whereBetween('created_at', [
+                    Carbon::createFromFormat('m/d/Y', $params->date_range->from)->format('Y-m-d')." 00:00:00",
+                    Carbon::createFromFormat('m/d/Y', $params->date_range->to)->format('Y-m-d')." 23:59:59"
+                ]);
+            }
+        }
+
+        if($this->content['data'] = $customer->get()){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status']);
         }
