@@ -10,15 +10,20 @@ Storaji is an Open Source, Responsive Inventory Management System, powered by El
 Go to [Release Section](https://github.com/IndomaximTechID/storaji/releases/)
 
 ### Status
-Version: 1.0.0-alpha
+Version: 1.0.0-beta.0
 [TRY DEMO WEBSITE HERE](https://indomaximtechid.github.io/storaji/)
 
 ### Latest updates
-- First released version 1.0.0-alpha
+- Released version 1.0.0-beta.0
 
 ### Consumer features
 - Products Management
 - Customers Management
-- Add Order and Order Overview
+- Orders Management and Order Overview
 - Statistics
 - Top Selling Products
+- Customers List on Product Overview
+- Reports for Products, Orders, Customers
+- Translations for Bahasa Indonesia, English
+- Save Report as PDF
+- Check for update app
