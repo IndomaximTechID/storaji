@@ -1,0 +1,129 @@
+{
+  "name": "storaji",
+  "version": "1.0.0-beta.0",
+  "license": "MIT",
+  "description": "Manage your company stocks with us.",
+  "main": "app/main.js",
+  "author": {
+    "name": "Indomaxim Technology",
+    "email": "support@indomaxim.web.id",
+    "url": "https://indomaxim.web.id/"
+  },
+  "build": {
+    "appId": "com.indomaxim.storaji",
+    "productName": "Storaji",
+    "releaseInfo": {
+      "releaseNotesFile": "src/electron/releaseNotes.md"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "IndomaximTechID",
+        "repo": "storaji"
+      }
+    ],
+    "files": [
+      "app/**"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "icon": "src/assets/storaji.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "Storaji",
+      "oneClick": false,
+      "perMachine": true,
+      "menuCategory": true,
+      "artifactName": "StorajiSetup.exe",
+      "installerSidebar": "src/assets/installerSidebar.bmp",
+      "uninstallerSidebar": "src/assets/installerSidebar.bmp"
+    }
+  },
+  "scripts": {
+    "build": "run-s build:app build:only",
+    "build:app": "ng build --prod",
+    "build:only": "build -w",
+    "build:release": "build -w -p always",
+    "electron": "electron app/main.js",
+    "ng": "ng",
+    "ng:e2e": "ng e2e",
+    "ng:test": "ng test --watch=false",
+    "ng:lint": "ng lint",
+    "ng:serve": "ng serve",
+    "postinstall": "electron-builder install-app-deps",
+    "prestart": "run-s build:app",
+    "release": "run-s build:app build:release",
+    "start": "run-s electron",
+    "test": "run-s ng:e2e ng:lint ng:test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^4.2.4",
+    "@angular/common": "^4.2.4",
+    "@angular/compiler": "^4.2.4",
+    "@angular/core": "^4.2.4",
+    "@angular/forms": "^4.2.4",
+    "@angular/http": "^4.2.4",
+    "@angular/platform-browser": "^4.2.4",
+    "@angular/platform-browser-dynamic": "^4.2.4",
+    "@angular/router": "^4.2.4",
+    "@fengyuanchen/datepicker": "^0.6.3",
+    "@ngui/auto-complete": "^0.16.0",
+    "@ngx-translate/core": "^8.0.0",
+    "@ngx-translate/http-loader": "^2.0.0",
+    "@types/lodash": "^4.14.77",
+    "core-js": "^2.4.1",
+    "electron-is-dev": "0.3.0",
+    "electron-log": "2.2.12",
+    "electron-updater": "2.16.3",
+    "font-awesome": "^4.7.0",
+    "gasparesganga-jquery-loading-overlay": "^1.5.3",
+    "ionicons": "^2.0.1",
+    "jquery": "^3.2.1",
+    "jquery.transit": "^0.9.12",
+    "ngx-progressbar": "^2.1.1",
+    "notyf": "^2.0.1",
+    "npm-run-all": "^4.1.2",
+    "numeral": "^2.0.6",
+    "offline-js": "^0.7.19",
+    "pdfmake": "^0.1.33",
+    "rxjs": "^5.4.2",
+    "uikit": "^3.0.0-beta.30",
+    "zone.js": "^0.8.14"
+  },
+  "devDependencies": {
+    "@angular/cli": "1.4.2",
+    "@angular/compiler-cli": "^4.2.4",
+    "@angular/language-service": "^4.2.4",
+    "@types/jasmine": "~2.5.53",
+    "@types/jasminewd2": "~2.0.2",
+    "@types/node": "~6.0.60",
+    "codelyzer": "~3.1.1",
+    "electron": "^1.7.9",
+    "electron-builder": "19.49.2",
+    "jasmine-core": "~2.6.2",
+    "jasmine-spec-reporter": "~4.1.0",
+    "karma": "~1.7.0",
+    "karma-chrome-launcher": "~2.1.1",
+    "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "~5.1.2",
+    "ts-node": "~3.2.0",
+    "tslint": "~5.3.2",
+    "typescript": "~2.3.3"
+  }
+}

@@ -57,12 +57,17 @@
             "stock": "Stock",
             "cost": "Cost",
             "selling-price": "Selling Price",
+            "price": "Price",
+            "total": "Total",
             "description": "Description",
             "sold": "Sold",
-            "amount": "Amount"
+            "amount": "Amount",
+            "date_from": "Date From",
+            "date_to": "Date To"
         },
         "placeholder": {
             "email": "Enter Email",
+            "order-id": "Enter Order ID",
             "password": "Enter Password",
             "product": "Enter Product",
             "customer": "Enter Customer",
@@ -81,11 +86,16 @@
             "cost": "Enter Cost",
             "selling-price": "Enter Selling Price",
             "description": "Enter Description",
-            "amount": "Enter Amount"
+            "amount": "Enter Amount",
+            "date": "Enter Date"
         },
         "button": {
             "save": "Save",
-            "cancel": "Cancel"
+            "cancel": "Cancel",
+            "show-customers": "Show customers",
+            "save-as-pdf": "Save as PDF",
+            "search": "Search",
+            "clear": "Clear"
         }
     },
     "text": {
@@ -99,11 +109,15 @@
             "customer": "Edit Customer",
             "order": "Edit Order"
         },
+        "search-option": "Search Options",
         "i18n": "Language Options",
+        "general": "General",
         "module": "Modules",
+        "report": "Reports",
         "forgot-password": "Forgot your password?",
         "has-account": "Already have an account?",
         "has-no-account": "You don't have an account yet?",
+        "customers-who-bought-this-product": "Customers who bought this product",
         "stat": {
             "financial": "Financials",
             "top-selling": "Top Selling Products",

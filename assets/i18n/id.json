@@ -57,12 +57,17 @@
             "stock": "Stok",
             "cost": "Harga Pokok",
             "selling-price": "Harga Jual",
+            "price": "Harga",
+            "total": "Total",
             "description": "Keterangan",
             "sold": "Terjual",
-            "amount": "Jumlah"
+            "amount": "Jumlah",
+            "date_from": "Dari Tanggal",
+            "date_to": "Sampai Tanggal"
         },
         "placeholder": {
             "email": "Masukkan Email",
+            "order-id": "Masukkan ID Pesanan",
             "password": "Masukkan Kata Sandi",
             "product": "Masukkan Produk",
             "customer": "Masukkan Pelanggan",
@@ -81,11 +86,16 @@
             "cost": "Masukkan Harga Pokok",
             "selling-price": "Masukkan Harga Jual",
             "description": "Masukkan Keterangan",
-            "amount": "Masukkan Jumlah"
+            "amount": "Masukkan Jumlah",
+            "date": "Masukkan Tanggal"
         },
         "button": {
             "save": "Simpan",
-            "cancel": "Batalkan"
+            "cancel": "Batalkan",
+            "show-customers": "Munculkan pelanggan",
+            "save-as-pdf": "Simpan PDF",
+            "search": "Cari",
+            "clear": "Bersihkan"
         }
     },
     "text": {
@@ -99,11 +109,15 @@
             "customer": "Ubah Pelanggan",
             "order": "Ubah Pesanan"
         },
+        "search-option": "Pilihan Pencarian",
         "i18n": "Pilihan Bahasa",
+        "general": "Umum",
         "module": "Modul",
+        "report": "Laporan",
         "forgot-password": "Lupa kata sandi?",
         "has-account": "Sudah punya akun?",
         "has-no-account": "Belum punya akun?",
+        "customers-who-bought-this-product": "Pelanggan yang membeli produk ini",
         "stat": {
             "financial": "Keuangan",
             "top-selling": "Produk Paling Banyak Terjual",
