@@ -4,11 +4,12 @@
   <p align="center">The Light/Responsive Inventory Management System</p>
   <p align="center">
     <a href="https://github.com/IndomaximTechID/storaji/releases"><img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg" alt="Platforms"></a>
+    <a href="https://www.patreon.com/bePatron?c=1404837"><img src="https://img.shields.io/badge/donate-patreon-red.svg" alt="Donate"></a>
   </p>
   <p align="center">
-    <a href="https://github.com/IndomaximTechID/storaji"><img src="https://img.shields.io/github/release/IndomaximTechID/storaji.svg" alt="GitHub version"></a>
+    <a href="https://github.com/IndomaximTechID/storaji"><img src="https://img.shields.io/github/release/IndomaximTechID/storaji/all.svg" alt="GitHub version"></a>
     <a href="https://travis-ci.org/IndomaximTechID/storaji-ui"><img src="https://api.travis-ci.org/IndomaximTechID/storaji-ui.svg?branch=master" alt="Travis"></a>
-    <a href="https://ci.appveyor.com/project/lowsprofile/storaji-ui"><img src="https://ci.appveyor.com/api/projects/status/github/indomaximtechid/storaji-ui?branch=master&svg=true?branch=master" alt="AppVeyor"></a>
+    <a href="https://ci.appveyor.com/project/lowsprofile/storaji-ui"><img src="https://ci.appveyor.com/api/projects/status/github/indomaximtechid/storaji-ui?branch=master&svg=true" alt="AppVeyor"></a>
   </p>
 </p>
 
@@ -17,12 +18,12 @@ The latest version of Storaji for macOS, Linux and Windows is available [here](h
 
 **macOS 10.9+, Windows 7+ & Linux are supported.**
 
-### Latest updates
-- Released version 1.0.0-beta.2
+#### Latest updates
+- (Pre-) Released version 1.0.0-beta.2
 - Now with macOS and Linux supported
 
-## Previous updates
-- Released version 1.0.0-beta.0
+#### Previous updates
+- (Pre-) Released version 1.0.0-beta.0
 - Just available on Windows
 
 ## Features
