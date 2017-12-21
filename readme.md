@@ -19,12 +19,14 @@ The latest version of Storaji for macOS, Linux and Windows is available [here](h
 **macOS 10.9+, Windows 7+ & Linux are supported.**
 
 #### Latest updates
+- (Pre-) Released version 1.0.0-beta.3
+- Enabled core-js/es6 polyfills
+
+#### Previous updates
 - (Pre-) Released version 1.0.0-beta.2
 - Now with macOS and Linux supported
 
-#### Previous updates
-- (Pre-) Released version 1.0.0-beta.0
-- Just available on Windows
+[More previous updates](https://github.com/IndomaximTechID/storaji/releases)
 
 ## Features
 - Products Management
