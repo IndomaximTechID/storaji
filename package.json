@@ -1,6 +1,6 @@
 {
   "name": "storaji",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.3",
   "license": "MIT",
   "description": "Manage your company stocks with us.",
   "main": "app/main.js",
@@ -28,8 +28,22 @@
     "directories": {
       "output": "dist"
     },
+    "mac": {
+      "category": "public.app-category.business"
+    },
+    "linux": {
+      "category": "Office",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
     "win": {
-      "icon": "src/assets/storaji.ico",
       "target": [
         {
           "target": "nsis",
@@ -46,25 +60,25 @@
       "oneClick": false,
       "perMachine": true,
       "menuCategory": true,
-      "artifactName": "StorajiSetup.exe",
-      "installerSidebar": "src/assets/installerSidebar.bmp",
-      "uninstallerSidebar": "src/assets/installerSidebar.bmp"
+      "artifactName": "StorajiSetup.exe"
     }
   },
   "scripts": {
-    "build": "run-s build:app build:only",
-    "build:app": "ng build --prod",
-    "build:only": "build -w",
-    "build:release": "build -w -p always",
+    "build": "run-s icons -l \"build:app --prod\" \"build:installer {@}\" --",
+    "build:app": "run-s \"ng:build {@}\" --",
+    "build:installer": "run-s \"builder {@}\" --",
+    "builder": "build",
     "electron": "electron app/main.js",
+    "icons": "icon-gen -i src/assets/storaji.svg -o src/assets/icons -n ico=storaji,icns=storaji",
     "ng": "ng",
-    "ng:e2e": "ng e2e",
-    "ng:test": "ng test --watch=false",
+    "ng:build": "ng build",
+    "ng:e2e": "ng e2e --no-progress",
+    "ng:test": "ng test --watch=false --no-progress",
     "ng:lint": "ng lint",
     "ng:serve": "ng serve",
     "postinstall": "electron-builder install-app-deps",
     "prestart": "run-s build:app",
-    "release": "run-s build:app build:release",
+    "release": "run-s -l \"build {@} -p always\" --",
     "start": "run-s electron",
     "test": "run-s ng:e2e ng:lint ng:test"
   },
@@ -111,8 +125,9 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.1.1",
-    "electron": "^1.7.9",
+    "electron": "~1.7.9",
     "electron-builder": "19.49.2",
+    "icon-gen": "^1.2.0",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
