@@ -18,8 +18,6 @@ class OrderController extends Controller
 
     public function get(Request $request){
         $order = Order::with(['order_detail.product', 'customer'])
-                        ->whereHas('customer')
-                        ->whereHas('order_detail.product')
                         ->where('company_id', Auth::user()->company->id);
 
         if($request->has('filter')){
@@ -99,8 +97,6 @@ class OrderController extends Controller
           ]);
 
           if($this->content['data'] = Order::with(['order_detail.product', 'customer'])
-                                            ->whereHas('customer')
-                                            ->whereHas('order_detail.product')
                                             ->where('company_id', Auth::user()->company->id)->get()){
             $this->content['status'] = 200;
             return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);

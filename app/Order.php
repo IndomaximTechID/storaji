@@ -39,7 +39,7 @@ class Order extends Model
 
     public function customer()
     {
-      return $this->belongsTo('\App\Customer');
+      return $this->belongsTo('\App\Customer')->withTrashed();
     }
 
     public function order_detail()
