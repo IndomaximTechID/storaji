@@ -1,6 +1,6 @@
 {
     "name": "storaji",
-    "version": "1.0.0-beta.4",
+    "version": "1.0.0-beta.5",
     "description": "The Light/Responsive Inventory Management System.",
     "keywords": ["software", "inventory", "management", "system"],
     "license": "MIT",
@@ -8,11 +8,12 @@
     "require": {
         "php": ">=7.0.0",
         "barryvdh/laravel-cors": "^0.9.3",
+        "doctrine/dbal": "^2.6",
         "fideloper/proxy": "~3.3",
+        "fzaninotto/faker": "~1.4",
         "laravel/framework": "5.5.*",
         "laravel/passport": "^4.0",
         "laravel/tinker": "~1.0",
-        "fzaninotto/faker": "~1.4",
         "webpatser/laravel-uuid": "^3.0"
     },
     "require-dev": {

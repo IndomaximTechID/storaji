@@ -131,7 +131,8 @@ class ProductController extends Controller
           'type_id' => ($request->input('type.id')) ? $request->input('type.id') : ProductType::create(['name' => $request->input('type')])->id,
           'stock' => $request->input('stock'),
           'cost' => $request->input('cost'),
-          'selling_price' => $request->input('selling_price')
+          'selling_price' => $request->input('selling_price'),
+          'image' => $request->input('image')
         ]);
 
         if($this->content['data'] = Product::with('type')->where('company_id', Auth::user()->company->id)->find($request->id)){

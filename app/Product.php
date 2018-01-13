@@ -23,6 +23,7 @@ class Product extends Model
       'stock',
       'cost',
       'selling_price',
+      'image',
       'company_id'
     ];
 
