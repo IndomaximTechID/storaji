@@ -134,4 +134,21 @@ class OrderController extends Controller
 
         return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
     }
+
+    public function delete(Request $request)
+    {
+        $customer = Order::where('company_id', Auth::user()->company->id)->find($request->id);
+        
+        $customer->delete();
+
+        if(!$this->content['data'] = Order::where('company_id', Auth::user()->company->id)->find($request->id)){
+          $this->content['status'] = 200;
+          return response()->json($this->content, $this->content['status']);
+        }
+
+        $this->content['error'] = "Server Error";
+        $this->content['status'] = 500;
+
+        return response()->json($this->content, $this->content['status']);
+    }
 }

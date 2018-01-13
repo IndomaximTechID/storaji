@@ -180,4 +180,9 @@ Route::group(['prefix' => 'orders', 'namespace' => '\Api\V1'], function()
     'middleware' => 'auth:api',
     'uses' => 'OrderController@find',
   ]);
+  Route::delete('/{id}/delete', [
+    'as' => 'api.orders.delete',
+    'middleware' => 'auth:api',
+    'uses' => 'OrderController@delete',
+  ]);
 });
