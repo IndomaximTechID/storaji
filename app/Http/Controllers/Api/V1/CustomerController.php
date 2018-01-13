@@ -125,7 +125,7 @@ class CustomerController extends Controller
         
         $customer->delete();
 
-        if($this->content['data'] = Customer::where('company_id', Auth::user()->company->id)->find($request->id)){
+        if(!$this->content['data'] = Customer::where('company_id', Auth::user()->company->id)->find($request->id)){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status']);
         }

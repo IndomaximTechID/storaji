@@ -153,7 +153,7 @@ class ProductController extends Controller
         
         $product->delete();
 
-        if($this->content['data'] = Product::with('type')->where('company_id', Auth::user()->company->id)->find($request->id)){
+        if(!$this->content['data'] = Product::with('type')->where('company_id', Auth::user()->company->id)->find($request->id)){
           $this->content['status'] = 200;
           return response()->json($this->content, $this->content['status'], [], JSON_NUMERIC_CHECK);
         }
