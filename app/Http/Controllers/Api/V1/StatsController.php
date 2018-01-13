@@ -17,11 +17,15 @@ class StatsController extends Controller
     public function stats(Request $request){
         $products = DB::table('products')->where('company_id', Auth::user()->company->id)->count();
         $customers = DB::table('customers')->where('company_id', Auth::user()->company->id)->count();
-        $orders = DB::table('orders')->where('company_id', Auth::user()->company->id)->count();
+        $orders = DB::table('orders')->where('company_id', Auth::user()->company->id)->whereNull('deleted_at')->count();
 
         $product_amounts = DB::table('order_details')
                  ->join('products', 'order_details.product_id', '=', 'products.id')
-                 ->where('products.company_id', Auth::user()->company->id)
+                 ->join('orders', 'order_details.order_id', '=', 'orders.id')
+                 ->where([
+                   'products.company_id' => Auth::user()->company->id,
+                   'orders.deleted_at' => null
+                  ])
                  ->select(DB::raw('product_id, count(product_id) as unit, amount'))
                  ->groupBy('product_id')
                  ->get();
@@ -62,7 +66,11 @@ class StatsController extends Controller
     public function topProducts(Request $request){
         $top_products = DB::table('order_details')
                  ->join('products', 'order_details.product_id', '=', 'products.id')
-                 ->where('products.company_id', Auth::user()->company->id)
+                 ->join('orders', 'order_details.order_id', '=', 'orders.id')
+                 ->where([
+                   'products.company_id' => Auth::user()->company->id,
+                   'orders.deleted_at' => null
+                  ])
                  ->select(DB::raw('products.id, products.name, products.stock, count(product_id) as orders, sum(amount) as sold'))
                  ->orderBy('sold', 'desc')
                  ->groupBy('product_id')
