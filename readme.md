@@ -19,15 +19,16 @@ The latest version of Storaji for macOS, Linux and Windows is available [here](h
 **macOS 10.9+, Windows 7+ & Linux are supported.**
 
 #### Latest updates
+- (Pre-) Released version 1.0.0-beta.5
+- New Features: (Multiple Order #1, Delete Order, Product Image)
+- Bugfix: (filter date #8, Bugfix Report Order, delete not pull the new state)
+
+#### Previous updates
 - (Pre-) Released version 1.0.0-beta.4
 - Using production server
 - DB has been migrated to production server (30 Dec, 2017)
 - Unlimited bandwidth, Unlimited Database Storage and Fast 24/7!
 - **DANGER!** Please update at least to this version or above, if you don't want to lose your data! Beta server has limited database, if the data more than 200mb it will reset all of them.
-
-#### Previous updates
-- (Pre-) Released version 1.0.0-beta.3
-- Enabled core-js/es6 polyfills
 
 [More previous updates](https://github.com/IndomaximTechID/storaji/releases)
 
@@ -35,6 +36,7 @@ The latest version of Storaji for macOS, Linux and Windows is available [here](h
 - Products Management
 - Customers Management
 - Orders Management and Order Overview
+- Multiple Orders
 - Statistics
 - Top Selling Products
 - Customers List on Product Overview
