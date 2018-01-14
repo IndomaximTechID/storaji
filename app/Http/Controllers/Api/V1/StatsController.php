@@ -15,8 +15,8 @@ class StatsController extends Controller
     }
 
     public function stats(Request $request){
-        $products = DB::table('products')->where('company_id', Auth::user()->company->id)->count();
-        $customers = DB::table('customers')->where('company_id', Auth::user()->company->id)->count();
+        $products = DB::table('products')->where('company_id', Auth::user()->company->id)->whereNull('deleted_at')->count();
+        $customers = DB::table('customers')->where('company_id', Auth::user()->company->id)->whereNull('deleted_at')->count();
         $orders = DB::table('orders')->where('company_id', Auth::user()->company->id)->whereNull('deleted_at')->count();
 
         $product_amounts = DB::table('order_details')
