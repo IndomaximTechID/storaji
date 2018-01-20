@@ -131,6 +131,17 @@ Route::group(['prefix' => 'companies', 'namespace' => '\Api\V1'], function()
 });
 
 
+// Users API
+Route::group(['prefix' => 'users', 'namespace' => '\Api\V1'], function()
+{
+  Route::put('/profile', [
+    'as' => 'api.users.profile.update',
+    'middleware' => 'auth:api',
+    'uses' => 'UserController@updateProfile',
+  ]);
+});
+
+
 // Customers API
 Route::group(['prefix' => 'customers', 'namespace' => '\Api\V1'], function()
 {
