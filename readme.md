@@ -10,6 +10,7 @@
     <a href="https://github.com/IndomaximTechID/storaji"><img src="https://img.shields.io/github/release/IndomaximTechID/storaji/all.svg" alt="GitHub version"></a>
     <a href="https://travis-ci.org/IndomaximTechID/storaji-ui"><img src="https://api.travis-ci.org/IndomaximTechID/storaji-ui.svg?branch=master" alt="Travis"></a>
     <a href="https://ci.appveyor.com/project/lowsprofile/storaji-ui"><img src="https://ci.appveyor.com/api/projects/status/github/indomaximtechid/storaji-ui?branch=master&svg=true" alt="AppVeyor"></a>
+    <a href="https://github.com/IndomaximTechID/storaji/releases"><img src="https://img.shields.io/github/downloads/indomaximtechid/storaji/total.svg" alt="Downloads"></a>
   </p>
 </p>
 
