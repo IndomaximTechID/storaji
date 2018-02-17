@@ -17,7 +17,7 @@
 ## Downloads
 macOS 10.9+ | Windows 7+ | Linux
 -----------------| ---| ---|
-<a href='https://github.com/IndomaximTechID/storaji/releases/download/v1.0.0-beta.8/Storaji-1.0.0-beta.8.dmg'>Download v1.0.0-beta.8</a> | <a href='https://github.com/IndomaximTechID/storaji/releases/download/v1.0.0-beta.8/StorajiSetup.exe'>Download v1.0.0-beta.8</a> | <a href='https://github.com/IndomaximTechID/storaji/releases/download/v1.0.0-beta.8/storaji-1.0.0-beta.8-x86_64.AppImage'>Download v1.0.0-beta.8</a> |
+<a href='https://github.com/IndomaximTechID/storaji/releases/download/v1.0.0-beta.9/Storaji-1.0.0-beta.9.dmg'>Download v1.0.0-beta.9</a> | <a href='https://github.com/IndomaximTechID/storaji/releases/download/v1.0.0-beta.9/StorajiSetup.exe'>Download v1.0.0-beta.9</a> | <a href='https://github.com/IndomaximTechID/storaji/releases/download/v1.0.0-beta.9/storaji-1.0.0-beta.9-x86_64.AppImage'>Download v1.0.0-beta.9</a> |
 
 [More Download Options](https://github.com/IndomaximTechID/storaji/releases)
 
