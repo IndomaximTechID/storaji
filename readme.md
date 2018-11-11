@@ -1,3 +1,5 @@
+## The project is no longer maintained, but you still can use this with your own private server. Check out the development section how to install it.
+
 <p align="center">
   <img src="https://github.com/IndomaximTechID/storaji-ui/blob/master/src/assets/storaji.png?raw=true" height="120" />
   <h3 align="center">Storaji</h3>
