@@ -167,8 +167,8 @@ return [
         /*
          * Package Service Providers...
          */
-        Barryvdh\Cors\ServiceProvider::class,
-        Fideloper\Proxy\TrustedProxyServiceProvider::class,
+        // Barryvdh\Cors\ServiceProvider::class,
+        // Fideloper\Proxy\TrustedProxyServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
 
         /*
