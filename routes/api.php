@@ -20,7 +20,7 @@ Route::get('/', function (Request $request) {
 });
 // Auth API
 
-Route::group(['prefix' => 'auth', 'namespace' => '\Api\V1'], function()
+Route::group(['prefix' => 'auth', 'namespace' => 'Api\V1'], function()
 {
   Route::post('/login', [
     'as' => 'api.auth.login',
@@ -44,7 +44,7 @@ Route::group(['prefix' => 'auth', 'namespace' => '\Api\V1'], function()
 
 
 // Stats API
-Route::group(['prefix' => 'stats', 'namespace' => '\Api\V1'], function()
+Route::group(['prefix' => 'stats', 'namespace' => 'Api\V1'], function()
 {
   Route::get('/', [
     'as' => 'api.stats',
@@ -60,7 +60,7 @@ Route::group(['prefix' => 'stats', 'namespace' => '\Api\V1'], function()
 
 
 // Products API
-Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
+Route::group(['prefix' => 'products', 'namespace' => 'Api\V1'], function()
 {
   Route::get('/', [
     'as' => 'api.products.list',
@@ -114,7 +114,7 @@ Route::group(['prefix' => 'products', 'namespace' => '\Api\V1'], function()
 
 
 // Companies API
-Route::group(['prefix' => 'companies', 'namespace' => '\Api\V1'], function()
+Route::group(['prefix' => 'companies', 'namespace' => 'Api\V1'], function()
 {
   // Companies API children Types
   Route::group(['prefix' => 'types'], function()
@@ -132,7 +132,7 @@ Route::group(['prefix' => 'companies', 'namespace' => '\Api\V1'], function()
 
 
 // Users API
-Route::group(['prefix' => 'users', 'namespace' => '\Api\V1'], function()
+Route::group(['prefix' => 'users', 'namespace' => 'Api\V1'], function()
 {
   Route::put('/profile', [
     'as' => 'api.users.profile.update',
@@ -143,7 +143,7 @@ Route::group(['prefix' => 'users', 'namespace' => '\Api\V1'], function()
 
 
 // Customers API
-Route::group(['prefix' => 'customers', 'namespace' => '\Api\V1'], function()
+Route::group(['prefix' => 'customers', 'namespace' => 'Api\V1'], function()
 {
   Route::get('/', [
     'as' => 'api.customers.list',
@@ -174,7 +174,7 @@ Route::group(['prefix' => 'customers', 'namespace' => '\Api\V1'], function()
 
 
 // Orders API
-Route::group(['prefix' => 'orders', 'namespace' => '\Api\V1'], function()
+Route::group(['prefix' => 'orders', 'namespace' => 'Api\V1'], function()
 {
   Route::get('/', [
     'as' => 'api.orders.list',
