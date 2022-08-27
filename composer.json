@@ -1,61 +1,61 @@
 {
-    "name": "storaji",
-    "version": "1.0.0-beta.9",
-    "description": "The Light/Responsive Inventory Management System.",
-    "keywords": ["software", "inventory", "management", "system"],
-    "license": "MIT",
-    "type": "project",
-    "require": {
-        "php": ">=7.1.3",
-        "doctrine/dbal": "^2.6",
-        "fideloper/proxy": "~4.0",
-        "fzaninotto/faker": "~1.4",
-        "laravel/framework": "^6.0",
-        "laravel/helpers": "^1.1",
-        "laravel/passport": "^7.0",
-        "laravel/tinker": "~1.0",
-        "webpatser/laravel-uuid": "^3.0"
-    },
-    "require-dev": {
-        "filp/whoops": "~2.0",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~6.0"
-    },
-    "autoload": {
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ],
-        "psr-4": {
-            "App\\": "app/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "dont-discover": [
-            ]
-        }
-    },
-    "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate"
-        ],
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
-        ]
-    },
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true,
-        "optimize-autoloader": true
-    }
+  "name": "storaji/storaji",
+  "version": "1.0.0-beta.9",
+  "description": "The Light/Responsive Inventory Management System.",
+  "keywords": ["software", "inventory", "management", "system"],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+      "php": ">=7.1.3",
+      "doctrine/dbal": "^2.6",
+      "fideloper/proxy": "~4.0",
+      "fzaninotto/faker": "~1.4",
+      "laravel/framework": "^6.0",
+      "laravel/helpers": "^1.1",
+      "laravel/passport": "^7.0",
+      "laravel/tinker": "~1.0",
+      "webpatser/laravel-uuid": "^3.0"
+  },
+  "require-dev": {
+      "filp/whoops": "~2.0",
+      "mockery/mockery": "0.9.*",
+      "phpunit/phpunit": "~6.0"
+  },
+  "autoload": {
+      "classmap": [
+          "database/seeds",
+          "database/factories"
+      ],
+      "psr-4": {
+          "App\\": "app/"
+      }
+  },
+  "autoload-dev": {
+      "psr-4": {
+          "Tests\\": "tests/"
+      }
+  },
+  "extra": {
+      "laravel": {
+          "dont-discover": [
+          ]
+      }
+  },
+  "scripts": {
+      "post-root-package-install": [
+          "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+      ],
+      "post-create-project-cmd": [
+          "@php artisan key:generate"
+      ],
+      "post-autoload-dump": [
+          "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+          "@php artisan package:discover"
+      ]
+  },
+  "config": {
+      "preferred-install": "dist",
+      "sort-packages": true,
+      "optimize-autoloader": true
+  }
 }
